@@ -3,6 +3,7 @@ import { CarProps } from "@/types";
 import { Fragment } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
+import { generateCarImagesUrl } from "@/utils";
 
 interface CarDetailsProps {
   isOpen: false;
@@ -59,7 +60,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     bg-center rounded-lg"
                     >
                       <Image
-                        src="/hero.png"
+                        src={generateCarImagesUrl(car, 'angle')}
                         alt="car model"
                         className="object-contain"
                         fill
@@ -72,7 +73,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCarImagesUrl(car, 'angle')}
                           alt="car model"
                           className="object-contain"
                           fill
@@ -84,7 +85,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCarImagesUrl(car, 'angle')}
                           alt="car model"
                           className="object-contain"
                           fill
@@ -96,7 +97,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCarImagesUrl(car, 'angle')}
                           alt="car model"
                           className="object-contain"
                           fill
