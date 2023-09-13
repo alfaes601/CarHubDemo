@@ -60,7 +60,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     bg-center rounded-lg"
                     >
                       <Image
-                        src={generateCarImagesUrl(car, 'angle')}
+                        src={generateCarImagesUrl(car, "angle")}
                         alt="car model"
                         className="object-contain"
                         fill
@@ -73,7 +73,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src={generateCarImagesUrl(car, 'angle')}
+                          src={generateCarImagesUrl(car, "29")}
                           alt="car model"
                           className="object-contain"
                           fill
@@ -85,7 +85,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src={generateCarImagesUrl(car, 'angle')}
+                          src={generateCarImagesUrl(car, "33")}
                           alt="car model"
                           className="object-contain"
                           fill
@@ -97,7 +97,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                        bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src={generateCarImagesUrl(car, 'angle')}
+                          src={generateCarImagesUrl(car, "13")}
                           alt="car model"
                           className="object-contain"
                           fill

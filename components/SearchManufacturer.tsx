@@ -23,10 +23,7 @@ const SearchManufacturer = ({
         );
   return (
     <div className="search-manufacturer">
-      <Combobox
-        value={manufacturer}
-        onChange={() => setManufacturer(manufacturer)}
-      >
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
@@ -54,11 +51,11 @@ const SearchManufacturer = ({
               {filteredManufacturers?.map((item: any) => (
                 <Combobox.Option
                   key={item}
-                  value={item}
                   className={({
                     active,
                   }) => `relative search-manufacturer__option 
                   ${active ? "bg-primary-blue text-white" : "text-gray-900"}`}
+                  value={item}
                 >
                   {({ selected, active }) => (
                     <>
