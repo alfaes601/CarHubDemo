@@ -1,19 +1,33 @@
 "use client";
 
-import { CardCard, CustomFilter, Hero, SearchBar } from "@/components/";
+import {
+  CardCard,
+  CustomFilter,
+  Hero,
+  SearchBar,
+  ShowMore,
+} from "@/components/";
 import { fuels, yearsOfProduction } from "@/constants";
-import { fetchCars } from "@/utils";
+import { fetchCars, fetchCars2 } from "@/utils";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default async function Home({ searchParams }) {
-  const allCars = await fetchCars({
-    manufacturer: searchParams.manifacturer || "",
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 10,
-    model: searchParams.model || "",
-  });
-  const isDataEmpty = allCars.length === 0 || !allCars;
+export default function Home({ searchParams }) {
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    const fetchUrl = async () => {
+      const allCars = await fetchCars2({
+        manufacturer: searchParams.manifacturer || "",
+        year: searchParams.year || 2022,
+        fuel: searchParams.fuel || "",
+        limit: searchParams.limit || 10,
+        model: searchParams.model || "",
+      });
+      setCars(allCars.cars);
+    };
+    fetchUrl();
+  }, []);
 
   return (
     <main className="overflow-hidden">
@@ -30,18 +44,22 @@ export default async function Home({ searchParams }) {
             <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
-        {isDataEmpty ? (
+        {cars?.message ? (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Opps</h2>{" "}
-            <p>{allCars?.messages}</p>
+            <p>{cars.message}</p>
           </div>
         ) : (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car: any) => (
+              {cars?.map((car: any) => (
                 <CardCard car={car} />
               ))}
             </div>
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={searchParams.limit || 10 > cars.length}
+            />
           </section>
         )}
       </div>

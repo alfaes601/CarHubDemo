@@ -7,6 +7,7 @@ import SearchBar from "./SearchBar";
 import SearchManufacturer from "./SearchManufacturer";
 import CardCard from "./CardCard";
 import CardDetails from "./CardDetails";
+import ShowMore from "./ShowMore";
 
 export {
   Hero,
@@ -18,4 +19,5 @@ export {
   SearchManufacturer,
   CardCard,
   CardDetails,
+  ShowMore,
 };
