@@ -1,5 +1,5 @@
 import { CarProps, FilterProps } from "@/types";
-import cars from "@/mocks/cars.json";
+import json from "@/mocks/cars.json";
 
 export async function fetchCars(filters: FilterProps) {
   const { manufacturer, year, model, limit, fuel } = filters;
@@ -19,6 +19,17 @@ export async function fetchCars(filters: FilterProps) {
 }
 
 export async function fetchCars2(filters: FilterProps) {
+  function isValid(car) {
+    return newFilters.filter(([key, value]) => car[key] === value);
+  }
+
+  //eliminando filtros vacios
+  const newFilters = Object.fromEntries(
+    Object.entries(filters).filter(
+      ([key, value]) => value !== "" && value !== null
+    )
+  );
+  const cars = json.cars.filter(isValid);
   return cars;
 }
 
